@@ -65,37 +65,43 @@ Console.WriteLine("El numero invertido es: " + invertido);
 
 //EJERCICIO 2
 
-int intMenu=0, num1, num2;
+int intMenu=1, num1, num2;
 string? auxMenuString = "";
 bool menu = false;
 
-while (!menu || intMenu < 1 || intMenu > 4)
+while(intMenu != 0)
 {
-    Console.WriteLine("Que desea hacer?\n1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir");
-    auxMenuString = Console.ReadLine();
-    menu = int.TryParse(auxMenuString, out intMenu);
-    if(!menu || intMenu < 1 || intMenu > 4)
+    while (!menu || intMenu < 1 || intMenu > 4)
     {
-        Console.WriteLine("Valor ingresado invalido");
+        Console.WriteLine("Que desea hacer?\n1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir");
+        auxMenuString = Console.ReadLine();
+        menu = int.TryParse(auxMenuString, out intMenu);
+        if(!menu || intMenu < 1 || intMenu > 4)
+        {
+            Console.WriteLine("Valor ingresado invalido");
+        }
     }
-}
 
-Console.WriteLine("Num 1: ");
-num1 = int.Parse(Console.ReadLine());
-Console.WriteLine("Num 2: ");
-num2 = int.Parse(Console.ReadLine());
-switch(intMenu)
-{
-    case 1: num1 += num2;
-            Console.WriteLine("La suma da: " + num1);
-            break;
-    case 2: num1 -= num2;
-            Console.WriteLine("La resta da: " + num1);
-            break;
-    case 3: num1 *= num2;
-            Console.WriteLine("La multiplicación da: " + num1);
-            break;
-    case 4: num1 /= num2;
-            Console.WriteLine("La división da: " + num1);
-            break;
+    Console.WriteLine("Num 1: ");
+    num1 = int.Parse(Console.ReadLine());
+    Console.WriteLine("Num 2: ");
+    num2 = int.Parse(Console.ReadLine());
+    switch(intMenu)
+    {
+        case 1: num1 += num2;
+                Console.WriteLine("La suma da: " + num1);
+                break;
+        case 2: num1 -= num2;
+                Console.WriteLine("La resta da: " + num1);
+                break;
+        case 3: num1 *= num2;
+                Console.WriteLine("La multiplicación da: " + num1);
+                break;
+        case 4: num1 /= num2;
+                Console.WriteLine("La división da: " + num1);
+                break;
+    }
+
+    Console.WriteLine("Desea ingresar otro número? (0: no, 1: si)");
+    intMenu = int.Parse(Console.ReadLine());
 }
